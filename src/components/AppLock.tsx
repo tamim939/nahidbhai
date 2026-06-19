@@ -27,8 +27,6 @@ export const AppLock: React.FC<{ children: React.ReactNode }> = ({ children }) =
     }
   };
 
-  const telegramLink = `https://t.me/TRADER_TANVIR_EX?text=${encodeURIComponent('ভাইয়া আপনার হ্যাক টি পেতে হলে আমার কি কি করতে হবে প্লিজ বলুন 😥')}`;
-
   if (!isLocked) return <>{children}</>;
 
   return (
@@ -67,15 +65,6 @@ export const AppLock: React.FC<{ children: React.ReactNode }> = ({ children }) =
           </div>
 
           <div className="flex gap-2">
-            <a
-              href={telegramLink}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="flex items-center justify-center w-14 h-14 bg-[#0088cc] text-white rounded-2xl hover:opacity-90 transition-opacity shrink-0 shadow-lg shadow-blue-500/20"
-              title="Contact Telegram"
-            >
-              <Send size={24} />
-            </a>
             <button
               onClick={handleUnlock}
               className="flex-1 h-14 bg-primary text-primary-foreground font-bold rounded-2xl hover:bg-primary/90 transition-all shadow-lg shadow-primary/20 active:scale-95"
@@ -83,12 +72,6 @@ export const AppLock: React.FC<{ children: React.ReactNode }> = ({ children }) =
               আনলক করুন
             </button>
           </div>
-        </div>
-
-        <div className="pt-4 border-t border-border">
-          <p className="text-[10px] text-muted-foreground uppercase tracking-widest font-bold">
-            〲 TANVIR AVIATOR HACK ♡ ̆̈—͟͞𖣘
-          </p>
         </div>
       </motion.div>
     </div>
