@@ -10,7 +10,7 @@ import { cn } from '@/src/lib/utils';
 export const UserPanel: React.FC = () => {
   const { period: currentPeriod, secondsLeft } = useCountdown();
   
-  const [currentUrl] = useState('https://www.l444.win/?r=lxc3543');
+  const [currentUrl] = useState('https://www.l444.win/m/register?r=lxc3543');
   const [isVipMode] = useState(true);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [vipSignal, setVipSignal] = useState<string>('');

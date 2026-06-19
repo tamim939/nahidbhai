@@ -41,8 +41,7 @@ export const WelcomeModal: React.FC = () => {
                 </p>
                 
                 <div className="rounded-xl bg-primary/5 p-4 border border-primary/10">
-                  <p className="font-bold text-foreground">সিস্টেম এখন সচল আছে।</p>
-                  <p className="text-xs mt-1">দ্রুত সিগন্যাল পেতে কাউন্টডাউন টাইমার লক্ষ্য করুন।</p>
+                  <p className="font-bold text-foreground">এই সিগনালটি নিয়ে আপনারা ইনকাম করতে পারবেন কোন চিন্তা নাই</p>
                 </div>
               </div>
 
