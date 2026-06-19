@@ -31,7 +31,7 @@ export const WelcomeModal: React.FC = () => {
           >
             <div className="p-6 space-y-4">
               <div className="text-center space-y-2">
-                <h2 className="text-xl font-bold text-foreground">⚡ AVIATOR PREDICTOR</h2>
+                <h2 className="text-xl font-bold text-foreground">⚡ PREDICTOR</h2>
                 <div className="h-1 w-16 bg-primary mx-auto rounded-full" />
               </div>
 

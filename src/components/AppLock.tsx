@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { Send } from 'lucide-react';
+import { LockKeyhole } from 'lucide-react';
 import { cn } from '@/src/lib/utils';
 
 const AUTH_KEY = 'app-unlocked-v2';
@@ -38,13 +38,7 @@ export const AppLock: React.FC<{ children: React.ReactNode }> = ({ children }) =
       >
         <div className="space-y-2">
           <div className="w-16 h-16 bg-primary/10 rounded-2xl flex items-center justify-center mx-auto mb-4">
-            <motion.span 
-              animate={{ rotate: [0, -10, 10, -10, 10, 0] }}
-              transition={{ repeat: Infinity, duration: 2 }}
-              className="text-3xl"
-            >
-              🔐
-            </motion.span>
+            <LockKeyhole size={32} className="text-primary" />
           </div>
           <h1 className="text-2xl font-black tracking-tight text-foreground">সিস্টেম লক করা আছে</h1>
           <p className="text-sm text-muted-foreground">ভিতরে প্রবেশ করতে পাসওয়ার্ড দিন</p>

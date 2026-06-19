@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { motion } from 'motion/react';
 import { SignalBar } from './SignalBar';
 import { WelcomeModal } from './WelcomeModal';
 import { ResultOverlay } from './ResultOverlay';
@@ -10,7 +11,6 @@ import { cn } from '@/src/lib/utils';
 export const UserPanel: React.FC = () => {
   const { period: currentPeriod, secondsLeft } = useCountdown();
   
-  const [currentUrl] = useState('https://www.l444.win/m/register?r=lxc3543');
   const [isVipMode] = useState(true);
   const [isAnalyzing, setIsAnalyzing] = useState(false);
   const [vipSignal, setVipSignal] = useState<string>('');
@@ -86,30 +86,95 @@ export const UserPanel: React.FC = () => {
   useHeartbeat();
 
   return (
-    <div className="flex flex-col h-[100dvh] bg-white relative font-sans select-text overflow-hidden">
+    <div className="flex flex-col h-[100dvh] bg-[#020205] relative font-sans select-text overflow-hidden">
+      {/* Premium Background Layers */}
+      <div className="absolute inset-0 z-0">
+        {/* Dynamic Mesh Gradients */}
+        <motion.div 
+          animate={{ 
+            x: [0, 50, -50, 0],
+            y: [0, -50, 50, 0],
+            scale: [1, 1.2, 0.8, 1],
+          }}
+          transition={{ repeat: Infinity, duration: 20, ease: "linear" }}
+          className="absolute top-[-10%] left-[-10%] w-[80%] h-[80%] rounded-full bg-amber-500/10 blur-[120px]" 
+        />
+        <motion.div 
+          animate={{ 
+            x: [0, -100, 100, 0],
+            y: [0, 100, -100, 0],
+            scale: [1, 0.8, 1.2, 1],
+          }}
+          transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+          className="absolute bottom-[-15%] right-[-15%] w-[80%] h-[80%] rounded-full bg-yellow-600/10 blur-[150px]" 
+        />
+        
+        <div className="absolute top-[20%] right-[-5%] w-[40%] h-[40%] rounded-full bg-orange-600/5 blur-[100px] animate-pulse duration-[5000ms]" />
+        
+        {/* Vignette */}
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(0,0,0,0)_0%,rgba(0,0,0,0.95)_100%)]" />
+        
+        {/* Premium Texture Overlay */}
+        <div className="absolute inset-0 opacity-[0.25] mix-blend-overlay pointer-events-none" 
+          style={{ backgroundImage: 'url("https://www.transparenttextures.com/patterns/carbon-fibre.png")' }} 
+        />
+        
+        {/* Golden Grid Overlay */}
+        <div className="absolute inset-0 opacity-[0.05] pointer-events-none" 
+          style={{ backgroundImage: 'linear-gradient(#fbbf24 1px, transparent 1px), linear-gradient(90deg, #fbbf24 1px, transparent 1px)', backgroundSize: '60px 60px' }} 
+        />
+        
+        {/* Dynamic Glowing Blobs */}
+        <motion.div 
+          animate={{ opacity: [0.1, 0.3, 0.1] }}
+          transition={{ repeat: Infinity, duration: 5 }}
+          className="absolute inset-0 bg-[conic-gradient(from_0deg,transparent_0%,rgba(251,191,36,0.05)_50%,transparent_100%)] animate-[spin_10s_linear_infinite]"
+        />
+
+        {/* Subtle Floating Dust Particles */}
+        <div className="absolute inset-0 pointer-events-none overflow-hidden">
+          {[...Array(25)].map((_, i) => (
+            <motion.div 
+              key={i}
+              initial={{ 
+                x: `${Math.random() * 100}%`, 
+                y: `${Math.random() * 100}%`,
+                opacity: Math.random() * 0.5
+              }}
+              animate={{ 
+                y: [null, `${Math.random() * -50}px`, null],
+                x: [null, `${(Math.random() - 0.5) * 40}px`, null],
+                opacity: [0.1, 0.4, 0.1]
+              }}
+              transition={{ 
+                repeat: Infinity, 
+                duration: 5 + Math.random() * 10,
+                ease: "easeInOut"
+              }}
+              className="absolute w-1 h-1 bg-amber-400 rounded-full blur-[1px]"
+            />
+          ))}
+        </div>
+      </div>
+
       <WelcomeModal />
       <ResultOverlay result={result} onComplete={() => setResult(null)} />
-      <div className="z-20 relative shrink-0">
-        <SignalBar 
-          signal={vipSignal} 
-          period={vipPeriod} 
-          currentPeriod={vipPeriod} 
-          secondsLeft={vipSeconds} 
-          maxSeconds={vipState === 'WAITING' ? 5 : 15}
-          isVip={true}
-          onManualSync={handleManualSync}
-          onNextSignal={handleNextSignal}
-          isAnalyzing={isAnalyzing}
-        />
-      </div>
-      <div className="flex-1 relative z-0 overflow-hidden bg-white">
-        <iframe
-          src={currentUrl}
-          className="absolute inset-0 w-full h-full border-none bg-white"
-          title="Game View"
-          allow="clipboard-write; fullscreen"
-          loading="lazy"
-        />
+      
+      {/* Centered Predictor Panel */}
+      <div className="flex-1 relative z-10 flex items-center justify-center p-6 pb-20">
+        <div className="w-full max-w-[360px] pointer-events-auto">
+          <SignalBar 
+            signal={vipSignal} 
+            period={vipPeriod} 
+            currentPeriod={vipPeriod} 
+            secondsLeft={vipSeconds} 
+            maxSeconds={vipState === 'WAITING' ? 5 : 15}
+            isVip={true}
+            onManualSync={handleManualSync}
+            onNextSignal={handleNextSignal}
+            isAnalyzing={isAnalyzing}
+          />
+        </div>
       </div>
     </div>
   );
